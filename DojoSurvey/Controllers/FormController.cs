@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using DojoSurvey.Models;
 namespace DojoSurvey.Controllers;
 
 public class FormController : Controller
@@ -9,12 +10,13 @@ public class FormController : Controller
         return View();
     }
     [HttpPost("/result")]
-    public IActionResult Result(string Name, string Location, string Language, string Comments)
+    public IActionResult Result(Form newForm)
     {
-        ViewBag.Name = Name;
-        ViewBag.Location = Location;
-        ViewBag.Language = Language;
-        ViewBag.Comments = Comments;
-        return View();
+        if(ModelState.IsValid) {
+            return View("Result", newForm);
+        }
+        else {
+            return View("Form");
+        }
     }
 }
