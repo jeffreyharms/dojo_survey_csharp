@@ -24,3 +24,7 @@
     margin: 2px 5px;
 }
 
+.error {
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
